@@ -20,17 +20,16 @@ img {
   vertical-align: middle;
 }
 
+//
+// Global header and footer
+//
+
 header {
-  min-height: 40px;
-  background: #fff;
+  min-height: 50px;
+  padding: 1rem 0;
 }
 
 footer {
-  min-height: 250px;
-  padding: 1em;
-  background: #789;
-
-  p {
-    color: #fff;
-  }
+  min-height: 50px;
+  padding: 1rem 0;
 }
