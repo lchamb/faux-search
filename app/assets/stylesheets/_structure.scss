@@ -1,0 +1,36 @@
+$body-background-color: #eaebec;
+
+// Make the box model behave reasonably
+// c.f. Paul Irish http://www.paulirish.com/2012/box-sizing-border-box-ftw
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+body {
+  background: $body-background-color;
+  font-family: $sans-serif-font-family;
+}
+
+// Remove the odd little space below images
+img {
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+}
+
+header {
+  min-height: 40px;
+  background: #fff;
+}
+
+footer {
+  min-height: 250px;
+  padding: 1em;
+  background: #789;
+
+  p {
+    color: #fff;
+  }
+}

@@ -1,0 +1,199 @@
+//
+// Typography*
+// 
+// Influenced by:
+// Thinking with Type, 2nd Edition by Ellen Lupton
+// Elements of Typographic Style by Robert Bringhurst
+//
+// ---------------------------------------------------------------------
+
+//
+// Typographic Variables
+// --------------------------------------------------
+
+// Fonts
+$serif-font-family:            "Georgia", Georgia, serif;
+$sans-serif-font-family:       "Verdana", Arial, sans-serif;
+$heading-font-family:          $sans-serif-font-family;
+$paragraph-font-family:        $sans-serif-font-family;
+    
+// Colors   
+$text-color:                   #333332;
+$text-accent-color:            #bc131a;
+$text-muted-color:             #999998;
+    
+// Headings   
+    
+// Paragraphs   
+$paragraph-font-size:          1em;
+$paragraph-small-line-height:  1.4;
+$paragraph-medium-line-height: 1.5;
+$paragraph-large-line-height:  1.618;
+$paragraph-margin-bottom:      1em;
+
+$lead-paragraph-font-size:     1.5em;
+$lead-paragraph-line-height:   1.4;
+$lead-paragraph-margin:        0 0 0.625em;    
+
+// Links
+$link-color:                   $text-accent-color;
+$link-decoration:              none;
+
+//
+// Typographic Styles 
+// --------------------------------------------------
+
+// Headings
+h1,h2,h3,h4,h5,h6 {
+  color: $text-color;
+  font-family: $heading-font-family;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0.25rem 0 2rem;
+  line-height: 1.1;
+}
+
+h6 {
+  margin: 0;
+  font-size: $h6-font-size;
+  line-height: 1em;
+}
+
+// Paragraph headings
+p + h2,
+p + h3,
+p + h4 {
+  margin-bottom: 0;
+}
+
+// Paragraphs
+p {
+  margin: 0 0 $paragraph-margin-bottom;
+  color: $text-color;
+  font-family: $paragraph-font-family;
+  font-size: 1em;
+  line-height: $paragraph-medium-line-height;
+
+  &.lead {
+    margin: $lead-paragraph-margin;
+    font-size: 1.25em;
+    line-height: $lead-paragraph-line-height;
+  }
+}
+
+// Links
+a {
+  color: $link-color;
+  text-decoration: $link-decoration;
+
+  &:hover {
+    color: darken($link-color, 10%);
+  }
+}
+
+// Block quotes
+blockquote {
+  position: relative;
+  margin: 2em 0 2em 2.5em;
+
+  p {
+    margin: $lead-paragraph-margin; 
+    font-size: $lead-paragraph-font-size;
+  }
+
+  &:before {
+    display: block;
+    content: "“";
+    position: absolute;
+    left: -0.5em;
+    top: -0.1em;
+    color: $text-muted-color;
+    font-size: 5em;
+  }
+}
+
+//
+// Advanced Typography
+// --------------------------------------------------
+
+// Dropcaps
+// Wrap the first letter inside a <p> tag like this: <p><span class="dropcap">O</span>nce upon a time...</p>
+.dropcap {
+  float: left;
+  margin: 0 0.2em 0 0;
+  color: $text-accent-color;
+  font-size: emCalc(44px);
+  line-height: 1em;
+}
+
+// Text Indent
+// Wrap all your paragraphs in <div class="text-indent"><p>...</p><p>...</p></div>
+.text-indent p {
+  margin-bottom: 0;
+  text-indent: 1em;
+
+  &:last-child {
+    margin-bottom: $paragraph-margin-bottom;
+  }
+
+  &:first-of-type {
+    text-indent: 0;
+  }
+}
+
+// Column-based line heights
+// Shorter line-height in narrow columns
+// TO-DO: make this work with other grid systems
+.large-4.columns p,
+.large-5.columns p,
+.large-6.columns p {
+  line-height: $paragraph-medium-line-height;
+}
+
+.large-1.columns p,
+.large-2.columns p,
+.large-3.columns p {
+  line-height: $paragraph-small-line-height;
+}
+
+
+//
+// Utility Classes
+// --------------------------------------------------
+
+// Alignment
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+// Colors
+.accent-color { color: $text-accent-color; }
+.muted { color: $text-muted-color; }
+
+// Emphasis
+.semibold { font-weight: 500; }
+.bold { font-weight: 700; }
+.uppercase { text-transform: uppercase; }
+
+//
+// For screen sizes above $small (default is 768px)
+// This typography file is mobile-first, so we 
+// --------------------------------------------------
+@media #{$small} {
+  h1,h2,h3,h4,h5,h6 { line-height: $header-line-height; }
+  h1 { font-size: $h1-font-size; }
+  h2 { font-size: $h2-font-size; }
+  h3 { font-size: $h3-font-size; }
+  h4 { font-size: $h4-font-size; }
+
+  p { line-height: $paragraph-large-line-height; }
+
+  p.lead,
+  ul.lead {
+    font-size: $lead-paragraph-font-size;
+  }
+}

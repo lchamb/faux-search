@@ -1,0 +1,109 @@
+//
+// Buttons.scss
+//
+
+// 1. Define default button variables
+// 2. Define button structure
+// 3. Define button styles
+// 4. Build button classes
+
+//
+// Button variables
+//
+
+$button-small:            emCalc(6px) !default;
+$button-medium:           emCalc(9px) !default;
+$button-large:            emCalc(12px) !default;
+
+$button-font-family:      inherit !default;
+$button-font-color:       #fff !default;
+$button-font-color-alt:   #333 !default;
+$button-font-weight:      bold !default;
+$button-text-shadow:      0 1px 1px rgba(0,0,0,.5);
+
+$button-border-width:     1px !default;
+$button-border-style:     solid !default;
+$button-border-color:     darken($primary-color, 10%) !default;
+
+// Separate multiple shadows with commas
+$button-box-shadow:       inset 0 1px 2px rgba(255,255,255,.5), 0 1px 2px rgba(0,0,0,.5) !default;
+
+$button-radius:           $global-radius !default;
+
+
+// Override browser defaults and establish the basic button structure
+@mixin button-structure($size:medium) {
+  display:         inline-block;
+  position:        relative;
+  width:           100%;
+  border-style:    $button-border-style;
+  border-width:    $button-border-width;
+  font-family:     $button-font-family;
+  line-height:     1;
+  text-decoration: none;
+  text-align:      center;
+
+  // Button sizes
+  @if $size == small {
+    margin:  0 0 $button-small;
+    padding: $button-small $button-small * 2;
+    font-size: $button-small * 2;
+  } @else if $size == medium {
+    margin:  0 0 $button-medium;
+    padding: $button-medium $button-medium * 2;
+    font-size: $button-medium * 2;
+  } @else if $size == large {
+    margin:  0 0 $button-large;
+    padding: $button-large $button-large * 2;
+    font-size: $button-large * 2;
+  }
+}
+
+// Style the button to match the look of the project
+@mixin button-style($bg:$primary-color, $radius:$button-radius) {
+  background-color: $bg;
+  border-color:     $button-border-color;
+  color:            $button-font-color;
+  font-weight:      $button-font-weight;
+  text-shadow:      $button-text-shadow;
+
+  &:hover,
+  &:focus {
+    background-color: darken($bg, 10%);
+  }
+
+  @include border-radius($radius);
+  @include box-shadow($button-box-shadow);
+  @include transition(background-color);
+}
+
+// Button Builder
+@mixin build-button($size:medium, $bg:$primary-color, $radius:$button-radius) {
+  @include button-structure($size:$size);
+  @include button-style($bg, $radius);
+}
+
+//
+// Use the button-building mixin to build button classes
+//
+button,
+.button {
+  @include build-button(large);
+}
+
+//
+// Examples of buttons you can build
+//
+// .button.flat-button { @include build-button(); }
+// .button.hipster-button { @include build-button(large, transparent); }
+//
+
+
+// Responsive stuff
+@media #{$small} {
+  button,
+  .button {
+    @include build-button(large);
+    &.expand-for-small { width: auto; }
+  }
+}

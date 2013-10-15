@@ -1,0 +1,41 @@
+//
+// Framewerk
+// A component-based scss framework
+// Useful for prototyping and for establishing the skeleton for larger projects
+//
+
+// Set the character encoding
+@charset "UTF-8";
+
+// Choose a reset or normalize file to align browser defaults
+// I use Nicolas Gallagher's git.io/normalize
+@import "normalize";
+
+// Global variables used in multiple components
+@import "variables";
+
+// Mixin toolkit
+// Add a mixin library here such as http://bourbon.io
+// @import "bourbon";
+@import "mixins";
+
+// Structure sets body styles and other global styles that are too opinionated for a reset
+@import "structure";
+
+// Choose a grid system
+// Consider buying this book:
+// http://www.amazon.com/Systems-Graphic-Systeme-Visuele-Gestaltung/dp/3721201450
+@import "grid";
+
+// Choose a typographic scale
+@import "typography";
+
+// Buttons
+@import "buttons";
+
+// Forms
+@import "forms";
+
+// Utility classes
+// Import these last as they often contain overrides
+@import "utilities";

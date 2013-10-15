@@ -1,0 +1,102 @@
+//
+// Forms.scss
+//
+
+// 1. Define default form variables
+// 2. Define form structure
+// 3. Define form styles
+// 4. Build form classes
+
+//
+// Variables
+//
+
+$form-spacing:            emCalc(16px);
+
+$input-font-family:       inherit !default;
+
+$input-background-color:  #fff;
+$input-border:            1px solid #ccc;
+$input-border-radius:     $global-radius;
+$input-box-shadow:        inset 0 1px 1px rgba(0,0,0,.5);
+$input-font-size:         24px;
+
+//
+// Form structure
+//
+
+@mixin input-structure {
+  display: block;
+  width: 100%;
+  margin: 0 0 $form-spacing;
+  padding: $form-spacing / 2;
+  line-height: 1.5;
+  font-size: $input-font-size;
+}
+
+//
+// Form styles
+//
+
+@mixin input-style {
+  background-color: $input-background-color;
+  border: $input-border;
+
+  @include border-radius($input-border-radius);
+  //@include box-shadow($input-box-shadow);
+}
+
+//
+// Builders
+//
+
+@mixin build-input() {
+  @include input-structure();
+  @include input-style();
+}
+
+//
+// Form classes
+//
+
+form {
+
+
+  &.form-inline .form-group {
+    display: inline;
+  }
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  legend {
+    margin: 0 0 $em-base;
+    color: #414141;
+    font-size: 1.6em;
+    font-weight: bold;
+  }
+}
+
+.form-group {
+  margin: 0 0 $em-base;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+  @include build-input();
+}

@@ -1,0 +1,5 @@
+// Hide form labels while still being accessible to screen readers
+.hidden-accessible {
+  position: absolute;
+  left: -9999em;
+}
