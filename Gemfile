@@ -28,6 +28,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :development do
+  gem 'guard', '~> 2.0.5'
+  gem 'guard-livereload'
   gem 'better_errors'
 end
 
