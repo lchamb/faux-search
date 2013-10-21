@@ -13,7 +13,7 @@
 
 // Fonts
 $serif-font-family:            "Georgia", Georgia, serif;
-$sans-serif-font-family:       "Verdana", Arial, sans-serif;
+$sans-serif-font-family:       "Helvetica Neue", Helvetica, Arial, sans-serif;
 $heading-font-family:          $sans-serif-font-family;
 $paragraph-font-family:        $sans-serif-font-family;
     
@@ -36,7 +36,7 @@ $lead-paragraph-line-height:   1.4;
 $lead-paragraph-margin:        0 0 0.625em;    
 
 // Links
-$link-color:                   $text-accent-color;
+$link-color:                   #0066cc;
 $link-decoration:              none;
 
 //
@@ -114,50 +114,6 @@ blockquote {
     color: $text-muted-color;
     font-size: 5em;
   }
-}
-
-//
-// Advanced Typography
-// --------------------------------------------------
-
-// Dropcaps
-// Wrap the first letter inside a <p> tag like this: <p><span class="dropcap">O</span>nce upon a time...</p>
-.dropcap {
-  float: left;
-  margin: 0 0.2em 0 0;
-  color: $text-accent-color;
-  font-size: emCalc(44px);
-  line-height: 1em;
-}
-
-// Text Indent
-// Wrap all your paragraphs in <div class="text-indent"><p>...</p><p>...</p></div>
-.text-indent p {
-  margin-bottom: 0;
-  text-indent: 1em;
-
-  &:last-child {
-    margin-bottom: $paragraph-margin-bottom;
-  }
-
-  &:first-of-type {
-    text-indent: 0;
-  }
-}
-
-// Column-based line heights
-// Shorter line-height in narrow columns
-// TO-DO: make this work with other grid systems
-.large-4.columns p,
-.large-5.columns p,
-.large-6.columns p {
-  line-height: $paragraph-medium-line-height;
-}
-
-.large-1.columns p,
-.large-2.columns p,
-.large-3.columns p {
-  line-height: $paragraph-small-line-height;
 }
 
 

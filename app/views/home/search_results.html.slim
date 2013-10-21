@@ -1,16 +1,11 @@
 .container
-  .row
-    .large-12.columns
-      form
-        fieldset
-          .button-group
-            .row
-              .large-8.columns
-                input type="search" placeholder="Search for a product"
-              .large-4.columns
-                button type="submit" Search
+  = render 'layouts/global_search'
 
   .row
-    - @products.each do |product|
+    .large-12.columns
+      h3= "Showing results for ‘#{@query}’"
+
+  .row
+    - @results.each do |product|
       .large-3.columns
         = render 'home/partials/search_result', product: product

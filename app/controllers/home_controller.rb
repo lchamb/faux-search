@@ -4,7 +4,8 @@ class HomeController < ApplicationController
   end
 
   def search_results
-    @products = [
+    @query = params[:q]
+    @results = [
       { title: "Feline Cat", price: 50, url: "http://www.placekitten.com/240/240" },
       { title: "Fluffy Cat", price: 65, url: "http://www.placekitten.com/230/230" },
       { title: "Friendly Cat", price: 75, url: "http://www.placekitten.com/220/220" },
