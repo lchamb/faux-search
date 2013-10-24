@@ -9,3 +9,7 @@
     - @results.each do |product|
       .large-3.columns
         = render 'home/partials/search_result', product: product
+
+  .row
+    .large-12.columns.search-results-pagination
+      = paginate @results
