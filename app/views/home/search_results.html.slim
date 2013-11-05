@@ -5,10 +5,12 @@
     .large-12.columns
       h3= "Showing results for ‘#{@query}’"
 
-  .row
-    - @results.each do |product|
-      .large-3.columns
-        = render 'home/partials/search_result', product: product
+  - @results.in_groups_of(4).each do |results|
+    .row
+      - results.each do |product|
+        .large-3.columns
+          - if product
+            = render 'home/partials/search_result', product: product
 
   .row
     .large-12.columns.search-results-pagination
