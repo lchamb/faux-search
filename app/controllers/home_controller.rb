@@ -5,7 +5,10 @@ class HomeController < ApplicationController
 
   def search_results
     @query = params[:q]
-    @results = Kaminari.paginate_array(scope).page(params[:page]).per(12)
+    
+    results = scope
+    results = results.sort_by(&:price) if params[:s] == "price-low-high"
+    @results = Kaminari.paginate_array(results).page(params[:page]).per(12)
   end
 
   private

@@ -5,5 +5,5 @@ FauxSearch::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  get '/search', to: 'home#search_results'
+  get '/search', to: 'home#search_results', as: :search
 end

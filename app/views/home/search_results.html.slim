@@ -3,6 +3,12 @@
 
   .row
     .large-12.columns
+      .pull-right
+        - url = search_path(q: params[:q], s: '')
+        select onchange="document.location = '#{url}' + $(this).val()"
+          option value="" Sort by...
+          - selected = params[:s] == 'price-low-high' ? 'selected' : nil
+          option value="price-low-high" selected=selected Price (low to high)
       h3= "Showing results for ‘#{@query}’"
 
   - @results.in_groups_of(4).each do |results|
